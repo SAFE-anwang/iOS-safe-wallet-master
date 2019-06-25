@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Xcode 7.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="BRBlackHoleAddressSafeEntity" representedClassName="BRBlackHoleAddressSafeEntity" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="totalAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="txId" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="BRBlockAvailableSafeEntity" representedClassName="BRBlockAvailableSafeEntity" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="BRBlockSafeEntity" representedClassName="BRBlockSafeEntity" syncable="YES">
+        <attribute name="blockHeight" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="totalAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="BRCandyNumberEntity" representedClassName="BRCandyNumberEntity" syncable="YES">
+        <attribute name="candyNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="publishCandyTxId" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="txId" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="BRGetCandyEntity" representedClassName="BRGetCandyEntity" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="assetId" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="assetName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blockHeight" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="blockTime" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="candyAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="decimals" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="inTxId" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="remarks" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="txId" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="BRIssueDataEnity" representedClassName="BRIssueDataEnity" syncable="YES">
+        <attribute name="assetDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="assetId" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="assetName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="assetUnit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="candyAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="candyExpired" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="decimals" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="destory" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="firstActualAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="firstIssueAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="payCandy" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="remarks" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shortName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="txId" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="BRMasternodeEntiy" representedClassName="BRMasternodeEntiy" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="BRPublishedTxEntity" representedClassName="BRPublishedTxEntity" syncable="YES">
+        <attribute name="txHash" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="txInputs" optional="YES" toMany="YES" deletionRule="No Action" ordered="YES" destinationEntity="BRPublishedTxInputEntity" inverseName="publishedTx" inverseEntity="BRPublishedTxInputEntity" syncable="YES"/>
+        <relationship name="txOutputs" optional="YES" toMany="YES" deletionRule="No Action" ordered="YES" destinationEntity="BRPublishedTxOutputEntity" inverseName="publishedTxOutputs" inverseEntity="BRPublishedTxOutputEntity" syncable="YES"/>
+    </entity>
+    <entity name="BRPublishedTxInputEntity" representedClassName="BRPublishedTxInputEntity" syncable="YES">
+        <attribute name="n" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="sequence" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="signature" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="txHash" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="publishedTx" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="BRPublishedTxEntity" inverseName="txInputs" inverseEntity="BRPublishedTxEntity" syncable="YES"/>
+    </entity>
+    <entity name="BRPublishedTxOutputEntity" representedClassName="BRPublishedTxOutputEntity" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="n" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="reserve" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="script" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="shapeshiftOutboundAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="spent" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="txHash" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="unlockHeight" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="publishedTxOutputs" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="BRPublishedTxEntity" inverseName="txOutputs" inverseEntity="BRPublishedTxEntity" syncable="YES"/>
+    </entity>
+    <entity name="BRPublishIssueDataEnity" representedClassName="BRPublishIssueDataEnity" syncable="YES">
+        <attribute name="assetAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="assetDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="assetId" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="assetName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="assetUnit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="candyAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="candyExpired" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="decimals" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="destory" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="firstActualAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="firstIssueAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="payCandy" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="remarks" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shortName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="txId" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="BRPutCandyEntity" representedClassName="BRPutCandyEntity" syncable="YES">
+        <attribute name="assetId" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="assetName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blockHeight" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="candyAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="candyExpired" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="decimals" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isGetState" optional="YES" attributeType="Integer 32" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="outputScript" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="remarks" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="txId" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="txTime" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+    </entity>
+    <entity name="BRReleaseEntity" representedClassName="" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="appCommand" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="assetId" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="releaseId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="txId" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BRBlackHoleAddressSafeEntity" positionX="-18" positionY="27" width="128" height="90"/>
+        <element name="BRBlockAvailableSafeEntity" positionX="36" positionY="108" width="128" height="90"/>
+        <element name="BRBlockSafeEntity" positionX="9" positionY="90" width="128" height="75"/>
+        <element name="BRGetCandyEntity" positionX="18" positionY="99" width="128" height="210"/>
+        <element name="BRIssueDataEnity" positionX="27" positionY="162" width="128" height="285"/>
+        <element name="BRMasternodeEntiy" positionX="36" positionY="207" width="128" height="90"/>
+        <element name="BRPublishedTxEntity" positionX="45" positionY="216" width="128" height="90"/>
+        <element name="BRPublishedTxInputEntity" positionX="63" positionY="225" width="128" height="120"/>
+        <element name="BRPublishedTxOutputEntity" positionX="81" positionY="234" width="128" height="195"/>
+        <element name="BRPublishIssueDataEnity" positionX="36" positionY="180" width="128" height="300"/>
+        <element name="BRPutCandyEntity" positionX="45" positionY="189" width="128" height="240"/>
+        <element name="BRReleaseEntity" positionX="54" positionY="198" width="128" height="120"/>
+        <element name="BRCandyNumberEntity" positionX="36" positionY="180" width="128" height="90"/>
+    </elements>
+</model>

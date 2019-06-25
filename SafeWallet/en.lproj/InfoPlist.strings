@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  DashWallet
+
+  Created by 黄锐锋 on 2018/9/20.
+  Copyright © 2018年 Aaron Voisine. All rights reserved.
+*/
+"NSCameraUsageDescription" = "You need to use your camera for scanning.";
+"NSPhotoLibraryUsageDescription" = "You need to save the two-dimensional code to the album.";

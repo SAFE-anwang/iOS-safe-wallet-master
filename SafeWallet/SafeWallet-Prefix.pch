@@ -1,0 +1,115 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#include <Availability.h>
+#include "BRUserDefaultsConstants.h"
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <Masonry/Masonry.h>
+#import "AppTool.h"
+#import "UIView+Extension.h"
+//#import <MLeaksFinder.h>
+
+#define SAFEWallet_TESTNET 1 // 1 测试环境 0 正式环境
+
+
+
+#if SAFEWallet_TESTNET // 测试
+#define BLOCKWEB_URL @"http://106.12.144.124/tx/" // 区块浏览器   106.12.144.124
+#else // 正式
+#define BLOCKWEB_URL @"http://chain.anwang.com/tx/" // 区块浏览器
+#endif
+
+
+#define kBuglyAppKey @"7ff43a95e1"
+#define BRPrecision_Name @"BRPrecision_Name"
+#define USER_REJECTED_TRANSACTION @"user_rejected_transaction"
+#define BRPeerManagerChainDownloadIsCompleteNotification @"BRPeerManagerChainDownloadIsCompleteNotification"
+
+#define StringLength @"stringLength"
+#define CellName @"cellName"
+#define SAFE_APP_VERSION @"safe_app_version"
+
+#ifdef DEBUG
+#define BRLog(...) NSLog(__VA_ARGS__)
+#else
+#define BRLog(...)
+#endif
+
+#define BRLogFunc BRLog(@"%s", __func__)
+
+
+#ifndef weakify
+#if DEBUG
+#if __has_feature(objc_arc)
+#define weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+#endif
+#endif
+#endif
+
+#ifndef strongify
+#if DEBUG
+#if __has_feature(objc_arc)
+#define strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
+#else
+#define strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
+#else
+#define strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
+#endif
+#endif
+#endif
+
+
+#define StrongObj(o) autoreleasepool{} __strong typeof(o) o = o##Weak;
+#define WeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
+
+#define ColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue &0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define ColorFromRGB255(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]
+#define MAIN_COLOR  [UIColor colorWithRed:29.0/255.0 green:117.0/255.0 blue:189.0/255.0 alpha:1.0]
+
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+//iPhoneX 适配屏幕底部按钮安全尺寸34
+#define SafeAreaBottomHeight (SCREEN_HEIGHT == 812.0 ? 34 : 0)
+#define SafeAreaViewHeight (SCREEN_HEIGHT == 812.0 ? 84 : 64)
+
+#define kScrenScale [UIScreen mainScreen].bounds.size.width/320.0
+#define kFont(size) [UIFont systemFontOfSize:(size) * kScrenScale weight:(UIFontWeightLight)]
+#define kBlodFont(size) [UIFont systemFontOfSize:(size) * kScrenScale weight:(UIFontWeightBold)]
+#define kRegularFont(size) [UIFont systemFontOfSize:(size) * kScrenScale weight:(UIFontWeightRegular)]
+#endif
+
+#ifndef __IPHONE_7_0
+#warning "This project uses features only available in iOS SDK 7.0 and later."
+#endif
+
+#ifndef DASH_TESTNET
+#define DASH_TESTNET 0
+#endif
+//#define SNAPSHOT        1
+#define PEER_LOGGING    1
+#define EVENT_LOGGING   1
+#define MESSAGE_LOGGING 0
+#define DROP_MESSAGE_LOGGING (0 & DEBUG)
+#define EXCHANGE_RATES_LOGGING 0
+
+#if ! DEBUG
+#define NSLog(...)
+#endif
