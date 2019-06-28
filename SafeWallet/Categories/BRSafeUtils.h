@@ -108,6 +108,11 @@
 #define TEST_START_SPOS_BlockTimeRatio 5 // SPOS 产生区块时间比例。  spos以前是150s产生一个块 之后是30s产生一个块 150 / 30 = 5
 #endif
 
+#if SAFEWallet_TESTNET // 测试
+#define ADJUST_MIN_REWARD_HEIGHT 183510 // SPOS 调整奖励金额高度。
+#else // 正式
+#define ADJUST_MIN_REWARD_HEIGHT 1109103 // SPOS 调整奖励金额高度。
+#endif
 
 @interface BRSafeUtils : NSObject
 

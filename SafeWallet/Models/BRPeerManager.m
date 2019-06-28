@@ -183,8 +183,8 @@ static const char *dns_seeds[] = {
 };
 #else // 正式
 static const struct { uint32_t height; const char *hash; uint32_t timestamp; uint32_t target; uint32_t nonce; } checkpoint_array[] = {
-    {      0, "00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6", 1390095618, 0x1e0ffff0u, 28917698 },
-//    { 807085, "a39e69b248f2ecf4b3a0d881722d339ba14dc6c4e28a88f1e35eb4b3aef05b82", 1516415216, 0x1e0ffff0,  0}
+//    {      0, "00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6", 1390095618, 0x1e0ffff0u, 28917698 },
+    { 807085, "a39e69b248f2ecf4b3a0d881722d339ba14dc6c4e28a88f1e35eb4b3aef05b82", 1516415216, 0x1e0ffff0,  0}
 //    {      806075, "0000000000000041c10c85b4e3a15002ffcda76905b658891e2cbe58d99c0fa2", 1516256017, 0x1946436cu, 4173287745 },
 };
 

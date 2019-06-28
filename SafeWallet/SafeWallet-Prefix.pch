@@ -15,7 +15,7 @@
 #import "UIView+Extension.h"
 //#import <MLeaksFinder.h>
 
-#define SAFEWallet_TESTNET 1 // 1 测试环境 0 正式环境
+#define SAFEWallet_TESTNET 0 // 1 测试环境 0 正式环境
 
 
 

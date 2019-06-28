@@ -37,7 +37,7 @@
 #import "NSString+Utils.h"
 
 #import "BRCoreDataManager.h"
-
+#import "BRPeer.h"
 #include <math.h>
 
 @implementation BRSafeUtils
@@ -786,13 +786,22 @@
 + (uint64_t) getSposBlockInflation:(int) height nPrevTarget:(long) nPrevTarget fSuperblockPartOnly:(BOOL) fSuperblockPartOnly
 {
     
-#if SAFEWallet_TESTNET // 测试
-    uint64_t nSubsidy = 450000000;
-#else // 正式
-    uint64_t nSubsidy = 310662692;
-#endif
-    
     int nPrevHeight = height - 1;
+#if SAFEWallet_TESTNET // 测试
+    uint64_t nSubsidy = 0;
+    if(nPrevHeight >= ADJUST_MIN_REWARD_HEIGHT) {
+        nSubsidy = 500000000;
+    } else {
+        nSubsidy = 450000000;
+    }
+#else // 正式
+    uint64_t nSubsidy = 0;
+    if(nPrevHeight >= ADJUST_MIN_REWARD_HEIGHT) {
+        nSubsidy = 345180768;
+    } else {
+        nSubsidy = 310662692;
+    }
+#endif
     
     int nNextDecrementHeight = 1261441;
     int nOffset = nNextDecrementHeight - TEST_START_SPOS_HEIGHT;

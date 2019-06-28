@@ -85,6 +85,12 @@
 #define REJECT_DUST        0x41 // one or more output amounts are below the 'dust' threshold
 #define REJECT_LOWFEE      0x42 // transaction does not have enough fee/priority to be relayed or mined
 
+#if SAFEWallet_TESTNET // 测试
+#define SPOS_PROTOCOL_HEIGHT 183500  // 调整协议版本高度
+#else // 正式
+#define SPOS_PROTOCOL_HEIGHT 1101183 // 调整协议版本高度
+#endif
+
 typedef union _UInt256 UInt256;
 typedef union _UInt128 UInt128;
 
